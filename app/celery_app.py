@@ -8,6 +8,7 @@ celery = Celery(
     "task_queue",
     broker=os.getenv("REDIS_URL"),
     backend=os.getenv("REDIS_URL"),
+    include=["app.tasks"]
 )
 
 celery.conf.update(
